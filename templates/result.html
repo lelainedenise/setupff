@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APCaS Result</title>
+    <style>
+        body {
+            background: url('static/bg image.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #F4E8C2;
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+
+            font-weight: bold;
+            color: black;
+        }
+
+        h1 {
+            color: #000000;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>APCaS</h1>
+
+        <p>Average Revenue: <span class="black-text">{{ metrics.average_revenue }}</span></p>
+        <p>Operating Cost: <span class="{{ 'green' if metrics.operating_cost|int > 0 else 'red' }}">{{ metrics.operating_cost }}</span></p>
+        <p>Gross Profit: <span class="{{ 'green' if metrics.gross_profit|int > 0 else 'red' }}">{{ metrics.gross_profit }}</span></p>
+        <p>Gross Profit Margin Rate: <span class="{{ 'green' if metrics.gross_profit_margin_rate|int > 0 else 'red' }}">{{ metrics.gross_profit_margin_rate }}%</span></p>
+        <p>Operating Profit Margin Rate: <span class="{{ 'green' if metrics.operating_profit_margin_rate|int > 0 else 'red' }}">{{ metrics.operating_profit_margin_rate }}%</span></p>
+        <p>Net Profit Margin Rate: <span class="{{ 'green' if metrics.net_profit_margin_rate|int > 0 else 'red' }}">{{ metrics.net_profit_margin_rate }}%</span></p>
+        <p>Return of Investment: <span class="{{ 'green' if metrics.return_of_investment|int > 0 else 'red' }}">{{ metrics.return_of_investment }}%</span></p>
+    </div>
+</body>
+</html>
